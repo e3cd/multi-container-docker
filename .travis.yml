@@ -13,9 +13,7 @@ after_success:
   - docker build -t e3cd/multi-nginx ./nginx
   - docker build -t e3cd/multi-server ./server
   - docker build -t e3cd/multi-worker ./worker
-  # log in to cli, bypass wizard
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
-  #Take these images and push them to docker hub thru docker cli
   - docker push e3cd/multi-client
   - docker push e3cd/multi-nginx
   - docker push e3cd/multi-server
